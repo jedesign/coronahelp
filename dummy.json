@@ -1,0 +1,3015 @@
+{
+    "nhits": 17,
+    "parameters": {
+        "timezone": "UTC",
+        "rows": 1000,
+        "format": "json",
+        "staged": false
+    },
+    "datasets": [
+        {
+            "datasetid": "vornamen_proplz",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "language": "de",
+                "license": "CC BY",
+                "title": "Vornamen pro PLZ",
+                "records_count": 31553,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-03-01T19:01:15.622047+00:00",
+                "metadata_processed": "2020-03-05T23:30:08.500454+00:00",
+                "data_processed": "2020-03-01T19:01:15.622047+00:00",
+                "description": "<p>Vornamensstatistik, erstellt auf Basis von der Post bekannten Bev\u00f6lkerungsdaten. Es werden jeweils pro Postleitzahl, Geschlecht und Stichdatum die f\u00fcnf h\u00e4ufigsten Vornamen gelistet. Die R\u00e4nge beschreiben die H\u00e4ufigkeit in Absteigender Reihenfolge (1 = h\u00e4ufigster Vorname, 5 = f\u00fcnfth\u00e4ufigster Vorname).</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "\ufeffStichdatum",
+                    "type": "date",
+                    "annotations": [
+                        {
+                            "args": [
+                                "day"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "stichdatum",
+                    "description": "Stichdatum auf die sich die erhobenen Werte beziehen (erhoben per Stichdatum [Stichdatum])."
+                },
+                {
+                    "label": "PLZ",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz",
+                    "description": "Adressier-Postleitzahl. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "Geschlecht",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "geschlecht",
+                    "description": "Geschlecht. Werte: w=nat\u00fcrliche Person weiblichen Geschlechts; m=nat\u00fcrliche Person m\u00e4nnlichen Geschlechts."
+                },
+                {
+                    "label": "Vorname",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "vorname",
+                    "description": "Der Vorname der Personengruppe. Diese Information basiert einerseits auf Angaben die aufgrund von Dienstleistungen (Adress\u00e4nderung, Postfach etc.) entstanden sind und andererseits auf den Hausbriefkastenanschriften oder den eintreffenden Sendungen f\u00fcr die Erbringung der Zustellung von Sendungen. Werte: n/a = Es ist keine verl\u00e4ssliche Aussage m\u00f6glich oder Daten wurden aufgrund der sehr geringen Anzahl anonymisiert."
+                },
+                {
+                    "label": "Anzahl",
+                    "type": "int",
+                    "description": "Bekannte Anzahl von nat\u00fcrlichen Personen pro Geschlecht, Vorname und Postleitzahl zu dem genannten Stichdatum.",
+                    "name": "anzahl"
+                },
+                {
+                    "label": "Rang",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "rang",
+                    "description": "Gruppierung nach relativer H\u00e4ufigkeit (Anzahl der Vornamen) pro gleicher Postleitzahl und dem gleichen Geschlecht zum gleichen Stichdatum. Bei gleicher Anzahl wird der gleiche Rang vergeben. Werte: 5 = tiefste Anzahl (im Sinne von Top 5); Rang 1 = h\u00f6chste Anzahl (im Sinne von Top 1). Es werden jeweils nur die Top 5 R\u00e4nge gelistet."
+                },
+                {
+                    "label": "ORTBEZ18",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ortbez18",
+                    "description": "Ortsbezeichnung, 18- oder 27-stellig. Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "hausnummer-und-hauskey_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_GEB"
+                ],
+                "title": "Hausnummer und Hauskey",
+                "records_count": 1864391,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T02:15:29.144888+00:00",
+                "metadata_processed": "2020-03-01T02:00:52.662804+00:00",
+                "data_processed": "2020-02-29T02:15:29.144888+00:00",
+                "description": "<p>Enth\u00e4lt Hausnummer und Hauskey.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr4.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it4.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de4.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en4.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Record-Art Bezeichnet die Record-Art",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "HAUSKEY",
+                    "type": "int",
+                    "description": "Hauskey Prim\u00e4rschl\u00fcssel der Adresse (Haus, Hauseingang).",
+                    "name": "hauskey"
+                },
+                {
+                    "label": "STRID",
+                    "type": "int",
+                    "description": "Fremdschl\u00fcssel zum Strassennamen  (Verweist auf NEW_STR)",
+                    "name": "strid"
+                },
+                {
+                    "label": "HNR",
+                    "type": "int",
+                    "description": "Hausnummer Numerischer Teil der Hausnummer. F\u00fcr Ortschaften oder Gebiete ohne offizielle Strassen mit Hausnummern wurde die offizielle Assekuranznummer (Geb\u00e4udeversicherungsnummer) erhoben; unabh\u00e4ngig davon,  ob diese bei der Adressierung verwendet wird oder nicht",
+                    "name": "hnr"
+                },
+                {
+                    "label": "HNRA",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "hnra",
+                    "description": "Status Hausnummer Zeigt an, ob eine Haunummer offiziell, d.h. von der politischen Gemeinde als offiziell anerkannt ist,  oder nicht. J = offiziell N = nicht offiziell"
+                },
+                {
+                    "label": "HNR_COFF",
+                    "type": "text",
+                    "description": "Status Hausnummer Zeigt an, ob eine Haunummer offiziell, d.h. von der politischen Gemeinde als offiziell anerkannt ist,  oder nicht. J = offiziell N = nicht offiziell",
+                    "name": "hnr_coff"
+                },
+                {
+                    "label": "GANZFACH",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "ganzfach",
+                    "description": "Ganzfach-Hausnummer Zeigt, ob die Hausnummer als Ganzfach oder nicht definiert ist J = Ganzfach N = Nicht Ganzfach Die Eintr\u00e4ge im Record NEW_BOT sind entsprechend gesetzt."
+                },
+                {
+                    "label": "FACH_ONRP",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "fach_onrp",
+                    "description": "ONRP der Fachstelle bei Ganzfachadressen Schl\u00fcssel der Fach-PLZ wenn STR_GANZFACH = J Die Eintr\u00e4ge im Record NEW_BOT sind entsprechend gesetzt.\nNull: wenn nicht alle Sendungen einer Adresse mit Ganzfach \u00fcber die gleiche Fachstelle zugestellt werden oder wenn GANZFACH = \u201aN\u2018. Die Eintr\u00e4ge bei GANZFACH = \u201aJ\u2018 im Record NEW_BOT sind so gesetzt, dass die Sendungen an die Zustellstelle geliefert werden, welche die Aufteilung auf die Fachstellen vornimmt."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "adressaenderungen_nach_zrh",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "language": "de",
+                "license": "CC BY",
+                "title": "Adress\u00e4nderungen nach ZRH",
+                "records_count": 2769,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-03-01T19:15:04.817688+00:00",
+                "metadata_processed": "2020-03-05T23:45:02.904716+00:00",
+                "data_processed": "2020-03-01T19:15:04.817688+00:00",
+                "description": "<p>Die der Post bekannten Anzahl von Adress\u00e4nderungen in das Gebiet der Stadt Z\u00fcrich (von x / nach Z\u00fcrich) jeweils f\u00fcr die letzten zw\u00f6lf Monate. Gelistet ist jeweils die Anzahl von nat\u00fcrlichen Personen und Haushalte nach Postleitzahl pro Monat.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "PLZ_VON",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz_von",
+                    "description": "Wegzugs-Postleitzahl: Die Postleitzahl von welcher aus die Adress\u00e4nderung veranlasst wurde. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "PLZ_NACH",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz_nach",
+                    "description": "Zuzugs-Postleitzahl: Die Postleitzahl zu welcher die Adress\u00e4nderung hin veranlasst wurde. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "Anz_Personen",
+                    "type": "int",
+                    "description": "Anzahl bekannter Adress\u00e4nderungen von nat\u00fcrlichen Personen in der gelisteten Postleitzahl-Konstellation (VON/ZU). Eine Adress\u00e4nderung kommt mittels der von der Post angebotenen Dienstleistung Adress\u00e4nderung zustande. D.h. eine Kundin bzw. Kunde meldet der Post online, am Schalter oder via Telefon die neue Adresse inkl. \u00c4nderungsdatum mit.",
+                    "name": "anz_personen"
+                },
+                {
+                    "label": "Anz_Haushalte",
+                    "type": "int",
+                    "description": "Anzahl bekannter Adress\u00e4nderungen von Haushalten in der gelisteten Postleitzahl-Konstellation (VON/ZU). Als Haushalt werden alle Privat- und Gesch\u00e4ftspersonen in einem Hausbriefkasten verstanden. Haushalt = Hausbriefkasten. Eine Adress\u00e4nderung kommt mittels der von der Post angebotenen Dienstleistung Adress\u00e4nderung zustande. D.h. eine Kundin bzw. Kunde meldet der Post online, am Schalter oder via Telefon die neue Adresse inkl. \u00c4nderungsdatum mit.",
+                    "name": "anz_haushalte"
+                },
+                {
+                    "label": "datum_periode",
+                    "type": "date",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "args": [
+                                "month"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "datum_periode",
+                    "description": "Ereignisperiode. Die Daten beziehen sich auf die aggregierten Werten dieses Monats (vom ersten Tag bis und mit letzten Tag des entsprechenden Monats)."
+                },
+                {
+                    "label": "ORTBEZ18_VON",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ortbez18",
+                    "description": "Ortsbezeichnung der Wegzugs-Postleitzahl, 18- oder 27-stellig. Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "stamps_swisspost",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY-NC",
+                "keyword": [
+                    "Stamps",
+                    "Briefmarken",
+                    "Philatelie",
+                    "Timbres",
+                    "Francobollo",
+                    "Posta",
+                    "Post",
+                    "Poste"
+                ],
+                "title": "Briefmarken der Post",
+                "records_count": 108,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Culture, Heritage",
+                    "Infrastruktur und Dienstleistungen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2019-12-05T14:55:26.308536+00:00",
+                "metadata_processed": "2019-12-05T14:55:40.146594+00:00",
+                "data_processed": "2018-10-22T14:19:45.932063+00:00",
+                "description": "<p>Datensatz zu den Briefmarken der Post ab der Ausgabe vom November 2016,\u00a0inklusive Angaben der technischen Merkmale und\u00a0das jeweilige Markenbild.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "Markenthema",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "markenthema",
+                    "description": "Thema der Briefmarkenausgabe, bestehend aus einer oder mehreren Briefmarken (siehe auch Titel der Briefmarke)"
+                },
+                {
+                    "label": "Briefmarkenart",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "briefmarkenart",
+                    "description": "Dauermarke: ca. 3 Jahre erh\u00e4ltlich\nSondermarke: rund 1 Jahr erh\u00e4ltlich\nSonderblock: einzelne Sondermarke mit breitem Rand"
+                },
+                {
+                    "label": "Type de timbre-poste",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "type_de_timbre_poste",
+                    "description": "Dauermarke: ca. 3 Jahre erh\u00e4ltlich\nSondermarke: rund 1 Jahr erh\u00e4ltlich\nSonderblock: einzelne Sondermarke mit breitem Rand"
+                },
+                {
+                    "label": "Tipo di francobollo",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "tipo_di_francobollo",
+                    "description": "Dauermarke: ca. 3 Jahre erh\u00e4ltlich\nSondermarke: rund 1 Jahr erh\u00e4ltlich\nSonderblock: einzelne Sondermarke mit breitem Rand"
+                },
+                {
+                    "label": "Type of stamp",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        },
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "type_of_stamp",
+                    "description": "Dauermarke: ca. 3 Jahre erh\u00e4ltlich\nSondermarke: rund 1 Jahr erh\u00e4ltlich\nSonderblock: einzelne Sondermarke mit breitem Rand"
+                },
+                {
+                    "label": "Briefmarkenthema",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "briefmarkenthema",
+                    "description": "Thema der Briefmarkenausgabe, bestehend aus einer oder mehreren Briefmarken (siehe auch \"Briefmarkenmotiv\")"
+                },
+                {
+                    "label": "Th\u00e8me du timbre-poste",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "theme_du_timbre_poste",
+                    "description": "Thema der Briefmarkenausgabe, bestehend aus einer oder mehreren Briefmarken (siehe auch \"Briefmarkenmotiv\")"
+                },
+                {
+                    "label": "Tema del francobollo",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "tema_del_francobollo",
+                    "description": "Thema der Briefmarkenausgabe, bestehend aus einer oder mehreren Briefmarken (siehe auch \"Briefmarkenmotiv\")"
+                },
+                {
+                    "label": "Stamp theme",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "stamp_theme",
+                    "description": "Thema der Briefmarkenausgabe, bestehend aus einer oder mehreren Briefmarken (siehe auch \"Briefmarkenmotiv\")"
+                },
+                {
+                    "label": "Verkauf Philatelie ab",
+                    "type": "date",
+                    "description": "Datum, ab welchem die Briefmarke bei Bestellung \u00fcber den Lupe-Bestellschein, im Onlineshop oder telefonisch ausgeliefert wird und in den 6 Filialen mit Briefmarkentheke erh\u00e4ltlich ist",
+                    "name": "verkauf_philatelie_ab"
+                },
+                {
+                    "label": "Verkauf Philatelie bis (oder so lange Vorrat)",
+                    "type": "date",
+                    "description": "Endverkaufsdatum der Briefmarke",
+                    "name": "verkauf_philatelie_bis_oder_so_lange_vorrat"
+                },
+                {
+                    "label": "G\u00fcltig unbeschr\u00e4nkt ab",
+                    "type": "date",
+                    "description": "Datum ab welchem die Briefmarke f\u00fcr den Versand verwendet werden kann",
+                    "name": "gultig_unbeschrankt_ab"
+                },
+                {
+                    "label": "Verkauf Filialen ab (so lange Vorrat)",
+                    "type": "date",
+                    "description": "Datum, ab welchem die Briefmarke in allen Filialen erh\u00e4ltlich ist",
+                    "name": "verkauf_filialen_ab_so_lange_vorrat"
+                },
+                {
+                    "label": "Druckart",
+                    "type": "text",
+                    "description": "Art des Drucks (Offset, Stahlstich, Anzahl der Verwendeten Farben, Speziallacke usw.)",
+                    "name": "druckart"
+                },
+                {
+                    "label": "Druckerei",
+                    "type": "text",
+                    "description": "Name der Druckerei",
+                    "name": "druckerei"
+                },
+                {
+                    "label": "Standort der Druckerei",
+                    "type": "text",
+                    "description": "Standort der Druckerei",
+                    "name": "standort_der_druckerei"
+                },
+                {
+                    "type": "text",
+                    "name": "format_briefmarke_wertzeichen",
+                    "label": "Format Briefmarke/Wertzeichen"
+                },
+                {
+                    "type": "text",
+                    "name": "format_markenbogen",
+                    "label": "Format Markenbogen"
+                },
+                {
+                    "type": "text",
+                    "name": "briefmarken_im_bogen",
+                    "label": "Briefmarken im Bogen"
+                },
+                {
+                    "type": "text",
+                    "name": "weitere_formate",
+                    "label": "weitere Formate"
+                },
+                {
+                    "label": "Papier",
+                    "type": "text",
+                    "description": "Art, Gewicht und Klebetechnik (selbstklebend, gummiert)",
+                    "name": "papier"
+                },
+                {
+                    "label": "Z\u00e4hnung",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "zahnung",
+                    "description": "Masse der Z\u00e4hnung (Zackenrands), die durch die Stanzung zur einfachen Trennung entsteht"
+                },
+                {
+                    "label": "K\u00fcnstler/Gestalter",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "kunstler_gestalter",
+                    "description": "Gestalter/in des Wertzeichens"
+                },
+                {
+                    "label": "Ort von K\u00fcnstler/Gestalter",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "ort_von_kunstler_gestalter",
+                    "description": "Wohn-, bzw. Arbeitsort der/des Gestalterin/Gestalters"
+                },
+                {
+                    "label": "FBL-Nr.",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "fbl_nr",
+                    "description": "fortlaufende Nummerierung auf dem Sammelprodukt \"Falt-/Sammelblatt\""
+                },
+                {
+                    "label": "SBL.Nr.",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "sbl_nr",
+                    "description": "fortlaufende Nummerierung auf dem Sammelprodukt \"Falt-/Sammelblatt\""
+                },
+                {
+                    "label": "Spezialtitel  ",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "spezialtitel",
+                    "description": "allf\u00e4lliger Zusatztitel (Bsp. EUROPA, Pro Patria, Pro Juventute u.\u00e4.)"
+                },
+                {
+                    "label": "Briefmarkenmotiv",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "briefmarkenmotiv",
+                    "description": "Titel der Briefmarke: bei Einzelmarken analog \"Briefmarkenthema\", bei einer Serie unterschiedliche Titel"
+                },
+                {
+                    "label": "Motif du timbre-poste",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "motif_du_timbre_poste",
+                    "description": "Titel der Briefmarke: bei Einzelmarken analog \"Briefmarkenthema\", bei einer Serie unterschiedliche Titel"
+                },
+                {
+                    "label": "Motivo del francobollo",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "motivo_del_francobollo",
+                    "description": "Titel der Briefmarke: bei Einzelmarken analog \"Briefmarkenthema\", bei einer Serie unterschiedliche Titel"
+                },
+                {
+                    "label": "Stamp motif",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "stamp_motif",
+                    "description": "Titel der Briefmarke: bei Einzelmarken analog \"Briefmarkenthema\", bei einer Serie unterschiedliche Titel"
+                },
+                {
+                    "label": "Wert in CHF",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "wert_in_chf",
+                    "description": "Frankatur-/Taxwert der Briefmarke in Schweizer Franken (CHF), Angabe immer in Rappen"
+                },
+                {
+                    "label": "Ausrichtung",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ausrichtung",
+                    "description": "Ausrichtung des Briefmarkenmotivs (Hochformat / Querformat)"
+                },
+                {
+                    "label": "Ausgabe",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ausgabe",
+                    "description": "Ausgabe 1: M\u00e4rz\nAusgabe 2: Mai\nAusgabe 3: September\nAusgabe 4: November"
+                },
+                {
+                    "label": "Kommentar Verkauf",
+                    "type": "text",
+                    "description": "allgemeine Anmerkungen zu Verkaufsfristen",
+                    "name": "kommentar_verkauf"
+                },
+                {
+                    "label": "Link zu Lupe-Online",
+                    "type": "text",
+                    "description": "Verlinkung auf das Onlinemagazin \"Die Lupe\"",
+                    "name": "link_zu_lupe_online"
+                },
+                {
+                    "label": "Direktlink Einzelbild Lupe-Online",
+                    "type": "text",
+                    "description": "Verlinkung auf die Abbildung der Briefmarke.",
+                    "name": "link_zum_markenbild"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialWithPermission-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "alternative-hausbezeichnung_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_GEBA"
+                ],
+                "title": "alternative Hausbezeichnung",
+                "records_count": 49463,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T03:32:35.424021+00:00",
+                "metadata_processed": "2020-03-01T03:30:02.816842+00:00",
+                "data_processed": "2020-02-29T03:32:35.424021+00:00",
+                "description": "<p>Enth\u00e4lt alternative Hausbezeichnung und alternativen Hauskey.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr3.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it3.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de3.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en3.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Bezeichnet die Record-Art. ",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "HAUSKEY_ALT",
+                    "type": "int",
+                    "description": "Prim\u00e4rschl\u00fcssel der alternativen Hausbezeichnung",
+                    "name": "hauskey_alt"
+                },
+                {
+                    "label": "HAUSKEY",
+                    "type": "int",
+                    "description": "Fremdschl\u00fcssel der Adresse (Haus, Hauseingang). Verweist auf NEW_GEB",
+                    "name": "hauskey"
+                },
+                {
+                    "label": "GEB_BEZ_ALT",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "geb_bez_alt",
+                    "description": "Zus\u00e4tzliche Geb\u00e4udebezeichnung Zus\u00e4tzliche Bezeichnung des Geb\u00e4udes, falls dieses einen Strassennamen mit Hausnummern hat. Beispiel: Chalet S\u00fcdegg (an der Bahnhofstrasse 12)"
+                },
+                {
+                    "label": "GEBTYP",
+                    "type": "int",
+                    "description": "2 = Adresse mit alternativer Geb\u00e4udebezeichnung",
+                    "name": "gebtyp"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "bevoelkerung_proplz",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "language": "de",
+                "license": "CC BY",
+                "title": "Bev\u00f6lkerung pro PLZ",
+                "records_count": 9557,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": false,
+                "modified": "2020-03-01T19:01:05.784846+00:00",
+                "metadata_processed": "2020-03-05T23:30:06.732628+00:00",
+                "data_processed": "2020-03-01T19:01:05.784846+00:00",
+                "description": "<p>Die der Post bekannten Anzahl der Bev\u00f6lkerung, gegliedert nach Bev\u00f6lkerungstyp, Postleitzahl und Stichdatum, jeweils f\u00fcr die letzten zw\u00f6lf Monate.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "\ufeffStichdatum",
+                    "type": "date",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "args": [
+                                "day"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "stichdatum",
+                    "description": "Stichdatum auf die sich die erhobenen Werte beziehen (erhoben per Stichdatum [Stichdatum])."
+                },
+                {
+                    "label": "PLZ",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz",
+                    "description": "Adressier-Postleitzahl. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "Anzahl",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        }
+                    ],
+                    "name": "anzahl",
+                    "description": "Bekannte Anzahl pro Bev\u00f6lkerungstyp und Postleitzahl zu dem genannten Stichdatum. Diese Information basiert einerseits auf Angaben die aufgrund von Dienstleistungen (Adress\u00e4nderung, Postfach etc.) entstanden sind und andererseits auf den Hausbriefkastenanschriften oder den eintreffenden Sendungen f\u00fcr die Erbringung der Zustellung von Sendungen."
+                },
+                {
+                    "label": "Typ",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "typ",
+                    "description": "Bev\u00f6lkerungstyp. Werte: w=nat\u00fcrliche Person weiblichen Geschlechts; m=nat\u00fcrliche Person m\u00e4nnlichen Geschlechts; h=Haushalt; f=Firma/Unternehmen. Als Haushalt werden alle Privat- und Gesch\u00e4ftspersonen in einem Hausbriefkasten verstanden. Haushalt = Hausbriefkasten. Firma/Unternehmen ist als juristische Person anzusehen (Einzelfirma, GmbH, AG etc.)."
+                },
+                {
+                    "label": "ORTBEZ18",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ortbez18",
+                    "description": "Ortsbezeichnung, 18- oder 27-stellig. Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "nachnamen_proplz",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "language": "de",
+                "license": "CC BY",
+                "title": "Nachnamen pro PLZ",
+                "records_count": 32724,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-03-01T19:01:14.439865+00:00",
+                "metadata_processed": "2020-03-05T23:30:05.635688+00:00",
+                "data_processed": "2020-03-01T19:01:14.439865+00:00",
+                "description": "<p>Nachnamensstatistik, erstellt auf Basis von der Post bekannten Bev\u00f6lkerungsdaten. Es werden jeweils pro Postleitzahl, Geschlecht und Stichdatum die f\u00fcnf h\u00e4ufigsten Nachnamen gelistet. Die R\u00e4nge beschreiben die H\u00e4ufigkeit in Absteigender Reihenfolge (1 = h\u00e4ufigster Nachname, 5 = f\u00fcnfth\u00e4ufigster Nachname).</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "\ufeffStichdatum",
+                    "type": "date",
+                    "annotations": [
+                        {
+                            "args": [
+                                "day"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "stichdatum",
+                    "description": "Stichdatum auf die sich die erhobenen Werte beziehen (erhoben per Stichdatum [Stichdatum])."
+                },
+                {
+                    "label": "PLZ",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz",
+                    "description": "Adressier-Postleitzahl. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "Geschlecht",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "sexcode",
+                    "description": "Geschlecht. Werte: w=nat\u00fcrliche Person weiblichen Geschlechts; m=nat\u00fcrliche Person m\u00e4nnlichen Geschlechts."
+                },
+                {
+                    "label": "Nachname",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "nachname",
+                    "description": "Der Nachname der Personengruppe. Diese Information basiert einerseits auf Angaben die aufgrund von Dienstleistungen (Adress\u00e4nderung, Postfach etc.) entstanden sind und andererseits auf den Hausbriefkastenanschriften oder den eintreffenden Sendungen f\u00fcr die Erbringung der Zustellung von Sendungen. Werte: n/a = Es ist keine verl\u00e4ssliche Aussage m\u00f6glich oder Daten wurden aufgrund der sehr geringen Anzahl anonymisiert."
+                },
+                {
+                    "label": "Anzahl",
+                    "type": "int",
+                    "description": "Bekannte Anzahl von nat\u00fcrlichen Personen pro Geschlecht, Nachname und Postleitzahl zu dem genannten Stichdatum.",
+                    "name": "anzahl"
+                },
+                {
+                    "label": "Rang",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "rang",
+                    "description": "Gruppierung nach relativer H\u00e4ufigkeit (Anzahl der Nachnamen) pro gleicher Postleitzahl und dem gleichen Geschlecht zum gleichen Stichdatum. Bei gleicher Anzahl wird der gleiche Rang vergeben. Werte: 5 = tiefste Anzahl (im Sinne von Top 5); Rang 1 = h\u00f6chste Anzahl (im Sinne von Top 1). Es werden jeweils nur die Top 5 R\u00e4nge gelistet."
+                },
+                {
+                    "label": "ORTBEZ18",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ortbez18",
+                    "description": "Ortsbezeichnung, 18- oder 27-stellig. Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "boteninformationen_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_BOT_B"
+                ],
+                "title": "Boteninformationen",
+                "records_count": 1864131,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T03:16:13.353067+00:00",
+                "metadata_processed": "2020-03-01T03:01:00.895644+00:00",
+                "data_processed": "2020-02-29T03:16:13.353067+00:00",
+                "description": "<p>Enth\u00e4lt Boteninformationen auf Stufe Hausnummer (Briefzustellung).</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr6.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it6.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de6.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en6.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Bezeichnet die Record-Art.",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "HAUSKEY",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "hauskey",
+                    "description": "Fremdschl\u00fcssel der Adresse (Haus, Hauseingang). Verweist auf NEW_GE"
+                },
+                {
+                    "label": "APLZ",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "aplz",
+                    "description": "Adressierpostleitzahl"
+                },
+                {
+                    "label": "BBZ-PLZ",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "bbz_plz",
+                    "description": "PLZ des Botenbezirks f\u00fcr Briefzustellung bei Ganzfachadressen PLZ der Fachstell"
+                },
+                {
+                    "label": "BOTENBEZ",
+                    "type": "int",
+                    "description": "Die Botenbezirks-Nr. wird durch die Zustellpoststelle zugeteilt. Bei Ganzfachadressen immer Bezirk 999.  Der Bezirk 999 wird nur geliefert, wenn die ganze Adresse bei der gleichen Fachstelle zugestellt wird (Feld_ADR_FACH_AMT_PLZ = nicht NULL), ansonsten wird der Domizilbezirk geliefert.",
+                    "name": "botenbez"
+                },
+                {
+                    "label": "ETAPPEN-NR",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "etappen_nr",
+                    "description": "Reihenfolge im Bezirk. Bei Ganzfachadressen immer 0."
+                },
+                {
+                    "label": "LAUF-NR",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "lauf_nr",
+                    "description": "Reihenfolge in der Etappe. Bei Ganzfachadressen immer 0. "
+                },
+                {
+                    "label": "NDEPOT",
+                    "type": "text",
+                    "description": "Nachlade-Depot",
+                    "name": "ndepot"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "sessions_pa_landingpage_national",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "Postauto",
+                    "Wifi",
+                    "HTTP-Sessions"
+                ],
+                "title": "Sessions PostAuto LandingPage National",
+                "records_count": 18984,
+                "staged": false,
+                "federated": false,
+                "visibility": "domain",
+                "modified": "2018-07-16T14:42:13+00:00",
+                "language": "de",
+                "theme": [
+                    "Infrastruktur und Dienstleistungen"
+                ],
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "data_processed": "2018-08-22T14:00:59+00:00",
+                "metadata_processed": "2018-08-22T14:01:00+00:00",
+                "description": "<p>Beinhaltet die Anzahl von Postauto Wifi HTTP-User Sessions (grobe Anzahl an eingeloggten UserInnen)\u00a0pro Stunde im Raum gesamte Schweiz f\u00fcr den Zeitraum von Mitte 2016 - Mitte 2018.</p><ul><li>Die Zeitangaben entsprechen dem\u00a0Format CET, unabh\u00e4ngig von Sommer-/Winterzeit.</li><li>Die Angaben zu den HTTP-Sessions wurden auf Basis der Nutzung der Postauto Wifi Landing Page wifi.postauto.ch erstellt (UserInnen werden f\u00fcr erstmalige Wifi Nutzung im Postauto auf diese Landing Page weitergeleitet).</li></ul>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "Datetime_CET",
+                    "type": "datetime",
+                    "description": "Datum und Zeit nach CET (UTC+1) unabh\u00e4ngig davon ob am aktuellen Datum Sommer- oder Winterzeit herrscht.",
+                    "name": "datetime_cet",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "args": [
+                                "hour"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ]
+                },
+                {
+                    "label": "Number_of_sessions",
+                    "type": "int",
+                    "description": "HTTP-Session pro User, die nach 30 Minuten Inaktivit\u00e4t oder um Mitternacht endet. Bezieht sich auf die Wifi Landing Page von Postauto, Region: ganze Schweiz.",
+                    "name": "number_of_sessions",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ]
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "adressaenderungen_in_zrh",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "language": "de",
+                "license": "CC BY",
+                "title": "Adress\u00e4nderungen in ZRH",
+                "records_count": 187,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-03-01T19:15:02.853160+00:00",
+                "metadata_processed": "2020-03-05T23:45:05.697947+00:00",
+                "data_processed": "2020-03-01T19:15:02.853160+00:00",
+                "description": "<p>Die der Post bekannten Anzahl von Adress\u00e4nderungen innerhalb der Stadt Z\u00fcrich (von Z\u00fcrich / nach Z\u00fcrich) jeweils f\u00fcr die letzten zw\u00f6lf Monate. Gelistet ist jeweils die Anzahl von nat\u00fcrlichen Personen und Haushalte nach Postleitzahl pro Monat.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "PLZ_VON",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz_von",
+                    "description": "Wegzugs-Postleitzahl: Die Postleitzahl von welcher aus die Adress\u00e4nderung veranlasst wurde. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "PLZ_NACH",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz_nach",
+                    "description": "Zuzugs-Postleitzahl: Die Postleitzahl zu welcher die Adress\u00e4nderung hin veranlasst wurde. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "Anz_Personen",
+                    "type": "int",
+                    "description": "Anzahl bekannter Adress\u00e4nderungen von nat\u00fcrlichen Personen in der gelisteten Postleitzahl-Konstellation (VON/ZU). Eine Adress\u00e4nderung kommt mittels der von der Post angebotenen Dienstleistung Adress\u00e4nderung zustande. D.h. eine Kundin bzw. Kunde meldet der Post online, am Schalter oder via Telefon die neue Adresse inkl. \u00c4nderungsdatum mit.",
+                    "name": "anz_personen"
+                },
+                {
+                    "label": "Anz_Haushalte",
+                    "type": "int",
+                    "description": "Anzahl bekannter Adress\u00e4nderungen von Haushalten in der gelisteten Postleitzahl-Konstellation (VON/ZU). Als Haushalt werden alle Privat- und Gesch\u00e4ftspersonen in einem Hausbriefkasten verstanden. Haushalt = Hausbriefkasten. Eine Adress\u00e4nderung kommt mittels der von der Post angebotenen Dienstleistung Adress\u00e4nderung zustande. D.h. eine Kundin bzw. Kunde meldet der Post online, am Schalter oder via Telefon die neue Adresse inkl. \u00c4nderungsdatum mit.",
+                    "name": "anz_haushalte"
+                },
+                {
+                    "label": "datum_periode",
+                    "type": "date",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "args": [
+                                "month"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "datum_periode",
+                    "description": "Ereignisperiode. Die Daten beziehen sich auf die aggregierten Werten dieses Monats (vom ersten Tag bis und mit letzten Tag des entsprechenden Monats)."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "alternative-strassenbezeichnung_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_STRA"
+                ],
+                "title": "alternative Strassenbezeichnung",
+                "records_count": 27293,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T02:32:43.990798+00:00",
+                "metadata_processed": "2020-03-01T02:30:07.261585+00:00",
+                "data_processed": "2020-02-29T02:32:43.990798+00:00",
+                "description": "<p>Logische alternative oder fremdsprache Strassenbezeichnung zur offiziellen Strassenbezeichnung. Geb\u00e4udebezeichnungen ohne Strasse/Hausnummer, Gebiets-, Flur- oder Weilerbezeichnungen werden wie Strassennamen behandelt.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr2.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it2.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de2.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en2.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Record-Art Bezeichnet die Record-Art.",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "STRID_ALT",
+                    "type": "double",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strid_alt",
+                    "description": "Prim\u00e4rschl\u00fcssel zum alternativen Strassennamen Prim\u00e4rschl\u00fcssel zum alternativen Strassennamen eindeutig pro Bezeichnung zur Identifikation der alternativen oder der fremdsprachigen Strassenbezeichnung."
+                },
+                {
+                    "label": "STRID",
+                    "type": "double",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strid",
+                    "description": "Fremdschl\u00fcssel zum Strassennamen  (Verweist auf NEW_STR)."
+                },
+                {
+                    "label": "STRTYP",
+                    "type": "int",
+                    "description": "Strassentyp 2 = Adresse mit alternativer Strassenbezeichnung (enth\u00e4lt immer auch den Key der offiziellen Strassenbezeichnung und den Hauskey) 3 = Adresse mit fremdsprachiger Strassenbezeichnung 4 = Adresse mit historischer Adresse",
+                    "name": "strtyp"
+                },
+                {
+                    "label": "STRBEZAK",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strbezak",
+                    "description": "Alternative Strassenbezeichnung  (abgek\u00fcrzt oder fremdsprachig) Alternative abgek\u00fcrzte oder fremdsprachige Strassenbezeichnung zur offiziellen Strassenbezeichnung. Geb\u00e4udebezeichnungen ohne Strasse/Hausnummer, Gebiets-, Flur- oder Weilerbezeichnungen werden wie Strassennamen behandelt. Diese Bezeichnung darf in der Adressierung nicht oder nur in Kombination mit der offiziellen Strassenbezeichnung verwendet werden. Ausnahme:  franz\u00f6sischsprachige Strassenbezeichnungen in Biel Beispiel: Eglise-Anglaise, avenue"
+                },
+                {
+                    "label": "STRBEZAL",
+                    "type": "text",
+                    "description": "Alternative Strassenbezeichnung Alternative oder fremdsprachige Strassenbezeichnung zur offiziellen Strassenbezeichnung. Geb\u00e4udebezeichnungen ohne Strasse/Hausnummer, Gebiets-, Flur- oder Weilerbezeichnungen werden wie Strassennamen behandelt. Diese Bezeichnung darf in der Adressierung nicht oder nur in Kombination mit der offiziellen Strassenbezeichnung verwendet werden. Ausnahme:  franz\u00f6sischsprachige Strassenbezeichnungen in Biel Beispiel: Eglise-Anglaise, avenue de l\u2019",
+                    "name": "strbezal"
+                },
+                {
+                    "label": "STRBEZA2K",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strbeza2k",
+                    "description": "Umgestellte alternative Strassenbezeichnung (abgek\u00fcrzt oder fremdsprachig) Abgek\u00fcrzte Alternative oder fremdsprachige Strassenbezeichnungen mit der Schreibweise Edelweiss, Chalet sind in diesem Feld auf Chalet Edelweiss umgestellt. Diese Bezeichnung darf in der Adressierung nicht oder nur in Kombination mit der offiziellen Strassenbezeichnung verwendet werden. Ausnahme: franz\u00f6sischsprachige Strassenbezeichnungen in Biel Beispiel: avenue Eglise-Anglaise"
+                },
+                {
+                    "label": "STRBEZA2L",
+                    "type": "text",
+                    "description": "Umgestellte alternative Strassenbezeichnung Alternative oder fremdsprachige Strassenbezeichnungen mit der Schreibweise Edelweiss, Chalet sind in diesem Feld auf Chalet Edelweiss umgestellt. Diese Bezeichnung darf in der Adressierung nicht oder nur in Kombination mit der offiziellen Strassenbezeichnung verwendet werden. Ausnahme:  franz\u00f6sischsprachige Strassenbezeichnungen in Biel Beispiel: avenue de l\u2019Eglise-Anglaise",
+                    "name": "strbeza2l"
+                },
+                {
+                    "label": "STR_LOK_TYP",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "str_lok_typ",
+                    "description": "Lokalisationstyp der Strasse Zur Unterscheidung wird folgender Code verwendet: 1 = Strassenname 2 = Geb\u00e4udebezeichnung"
+                },
+                {
+                    "type": "int",
+                    "name": "strbez_spc",
+                    "label": "STRBEZ_SPC"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "politische-gemeinden_v2",
+            "metas": {
+                "publisher": "Bundesamtes f\u00fcr Statistik (BFS)",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_COM"
+                ],
+                "title": "politische Gemeinden",
+                "records_count": 2216,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T01:32:19.713596+00:00",
+                "metadata_processed": "2020-03-01T01:30:02.614727+00:00",
+                "data_processed": "2020-02-29T01:32:19.713596+00:00",
+                "description": "<p>Enth\u00e4lt die politischen Gemeinden der Schweiz und des F\u00fcrstentums Liechtenstein. Diese Daten stammen aus der offiziellen Liste des Bundesamtes f\u00fcr Statistik (BFS)</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr1.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it1.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de1.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en1.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Record-Art Bezeichnet die Record-Art.",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "BFSNR",
+                    "type": "int",
+                    "description": "BfS-Nummer Vom Bundesamt f\u00fcr Statistik verwendete Nummerierung f\u00fcr die politischen Gemeinden der Schweiz und des F\u00fcrstentums Liechtenstein.",
+                    "name": "bfsnr"
+                },
+                {
+                    "label": "GEMEINDENAME",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "gemeindename",
+                    "description": "Gemeindename Offizieller Gemeindename gem\u00e4ss \u00abGemeindeverzeichnis der Schweiz\u00bb des BfS."
+                },
+                {
+                    "label": "KANTON",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "kanton",
+                    "description": "Kanton Kantonsk\u00fcrzel analog Autokennzeichen.  Siehe vollst\u00e4ndige Liste im Anhang."
+                },
+                {
+                    "label": "AGGLONR",
+                    "type": "int",
+                    "description": "Agglomerationsnummer Verweist auf eine BFS-Nummer. Die Schweiz hat 35 Agglomerationen, die durch das  BfS festgelegt werden. Das Zentrum einer Agglomeration ist die Kerngemeinde, d.h. eine Stadt, in der die wirtschaftlichen und kulturellen Str\u00f6me sowie die Dienstleistungen zusammenfliessen. Die Aussen- gemeinden sind baulich und durch Pendlerbeziehungen mit der Kerngemeinde verbunden. BFSNR Gemeindename Agglomerationsnr. (= BFSNR) Agglomerationsname (= Gemeindename)\n351 Bern (= Kerngemeinde) 351 Bern 352 Bolligen 351 Bern 362 Ittigen 351 Bern 358 Stettlen 351 Bern",
+                    "name": "agglonr"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "adressaenderungen_sample",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "language": "de",
+                "license": "CC BY",
+                "title": "Adress\u00e4nderungen Sample",
+                "records_count": 1662,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-03-01T19:15:09.158182+00:00",
+                "metadata_processed": "2020-03-05T23:45:02.752178+00:00",
+                "data_processed": "2020-03-01T19:15:09.158182+00:00",
+                "description": "<p>Die der Post bekannten Anzahl von Adress\u00e4nderungen in die St\u00e4dte Baden, La-Chaux-de-Fonds, Bellinzona und Ilanz (von x / nach Stadt) jeweils f\u00fcr die letzten zw\u00f6lf Monate. Gelistet ist jeweils die Anzahl von nat\u00fcrlichen Personen und Haushalte nach Postleitzahl pro Monat.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "timeserie"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "PLZ_VON",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz_von",
+                    "description": "Wegzugs-Postleitzahl: Die Postleitzahl von welcher aus die Adress\u00e4nderung veranlasst wurde. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "PLZ_NACH",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "plz_nach",
+                    "description": "Zuzugs-Postleitzahl: Die Postleitzahl zu welcher die Adress\u00e4nderung hin veranlasst wurde. Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)."
+                },
+                {
+                    "label": "Anz_Personen",
+                    "type": "int",
+                    "description": "Anzahl bekannter Adress\u00e4nderungen von nat\u00fcrlichen Personen in der gelisteten Postleitzahl-Konstellation (VON/ZU). Eine Adress\u00e4nderung kommt mittels der von der Post angebotenen Dienstleistung Adress\u00e4nderung zustande. D.h. eine Kundin bzw. Kunde meldet der Post online, am Schalter oder via Telefon die neue Adresse inkl. \u00c4nderungsdatum mit.",
+                    "name": "anz_personen"
+                },
+                {
+                    "label": "Anz_Haushalte",
+                    "type": "int",
+                    "description": "Anzahl bekannter Adress\u00e4nderungen von Haushalten in der gelisteten Postleitzahl-Konstellation (VON/ZU). Als Haushalt werden alle Privat- und Gesch\u00e4ftspersonen in einem Hausbriefkasten verstanden. Haushalt = Hausbriefkasten. Eine Adress\u00e4nderung kommt mittels der von der Post angebotenen Dienstleistung Adress\u00e4nderung zustande. D.h. eine Kundin bzw. Kunde meldet der Post online, am Schalter oder via Telefon die neue Adresse inkl. \u00c4nderungsdatum mit.",
+                    "name": "anz_haushalte"
+                },
+                {
+                    "label": "ORTBEZ18_VON",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ortbez18_von",
+                    "description": "Ortsbezeichnung der Wegzugs-Postleitzahl, 18- oder 27-stellig. Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall."
+                },
+                {
+                    "label": "ORTBEZ27_NACH",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "sortable"
+                        },
+                        {
+                            "name": "facet"
+                        },
+                        {
+                            "name": "disjunctive"
+                        }
+                    ],
+                    "name": "ortbez27_nach",
+                    "description": "Ortsbezeichnung der Zuzugs-Postleitzahl, 18- oder 27-stellig. Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall."
+                },
+                {
+                    "label": "datum_periode",
+                    "type": "date",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "args": [
+                                "month"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "datum_periode",
+                    "description": "Ereignisperiode. Die Daten beziehen sich auf die aggregierten Werten dieses Monats (vom ersten Tag bis und mit letzten Tag des entsprechenden Monats)."
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "alternative-ortsbezeichnungen-und-gebietsbezeichnungen_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_PLZ2"
+                ],
+                "title": "alternative Ortsbezeichnungen und Gebietsbezeichnungen",
+                "records_count": 2021,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T01:03:21.548165+00:00",
+                "metadata_processed": "2020-03-01T01:01:00.690238+00:00",
+                "data_processed": "2020-02-29T01:03:21.548165+00:00",
+                "description": "<p><p>Enth\u00e4lt alternative Ortsbezeichnungen und Gebietsbezeichnungen zur jeweiligen Postleitzahl.</p></p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr0.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it0.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de0.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en0.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Record-Art Bezeichnet die Record-Art. ",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "ONRP",
+                    "type": "int",
+                    "description": "Ordnungsnummer Post Fremdschl\u00fcssel zu PLZ/Ort (verweist auf NEW_PLZ1). Die ONRP ist der eindeutige, unver\u00e4nderliche Schl\u00fcsselbegriff einer PLZ. Jede neue PLZ erh\u00e4lt eine neue ONRP. Eine ONRP bleibt unver\u00e4ndert, w\u00e4hrend sich eine PLZ \u00e4ndern kann. Wird eine PLZ ausser Betrieb gesetzt, wird die zugeord- nete ONRP nicht mehr verwendet. Wird (in seltenen F\u00e4llen) eine PLZ wieder in Betrieb genommen, wird ihr wieder die urspr\u00fcngliche ONRP zugeordnet.",
+                    "name": "onrp"
+                },
+                {
+                    "label": "LAUFNUMMER",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "laufnummer",
+                    "description": "Laufnummer der Bezeichnung innerhalb einer ONRP. Die Laufnummer ist eine jeder alternativen oder Gebietsbezeichnung als Key (Schl\u00fcssel) zugeordnete Nummer. Bei einer L\u00f6schung wird sie nicht weiterverwendet. G\u00fcltige Werte liegen zwischen 001\u2013999."
+                },
+                {
+                    "label": "BEZTYP",
+                    "type": "int",
+                    "description": "Bezeichnungstypen Es existieren zwei Bezeichnungstypen:\n2: f\u00fcr die Adressierung erlaubte alternative oder fremdsprachige Ortsbezeichnung. Diese darf zusammen mit der PLZ verwendet werden. Beispiele: 6085 Hasliberg Goldern > 6085 Goldern 1200 Gen\u00e8ve > 1200 Genf\n3: Gebietsbezeichnung. Diese darf in der Adressierzeile verwendet werden, aber nicht zusammen mit der PLZ in der Ortszeile erscheinen. Beispiel: Die Gebietsbezeichnung Tenigerbad wird adressiert als Tenigerbad 7173 Surrein",
+                    "name": "beztyp"
+                },
+                {
+                    "label": "SPRACHCODE",
+                    "type": "int",
+                    "description": "Sprachcode Sprache oder Sprachmehrheit im Gebiet einer Postleitzahl: 1 = deutsch 2 = franz\u00f6sisch 3 = italienisch 4 = r\u00e4toromanisch Bei mehrsprachigen Ortschaften wird die Hauptsprache angegeben.",
+                    "name": "sprachcode"
+                },
+                {
+                    "label": "ORTBEZ18",
+                    "type": "text",
+                    "description": "Ortsbezeichnung 18- oder 27-stellig Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt, z. B. \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall",
+                    "name": "ortbez18"
+                },
+                {
+                    "label": "ORTBEZ27",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "ortbez27",
+                    "description": "Ortsbezeichnung 18- oder 27-stellig Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt, z. B. \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "strassenbezeichnungen_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "NEW_STR"
+                ],
+                "title": "Strassenbezeichnungen",
+                "records_count": 168620,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-02-29T00:34:02.348324+00:00",
+                "metadata_processed": "2020-03-01T00:30:08.489573+00:00",
+                "data_processed": "2020-02-29T00:34:02.348324+00:00",
+                "description": "<p>Enth\u00e4lt alle Strassenbezeichnungen aller Ortschaften der Schweiz und  des F\u00fcrstentums Liechtenstein.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Record-Art Bezeichnet die Record-Art.",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "STRID",
+                    "type": "int",
+                    "description": "Strassenname Prim\u00e4rschl\u00fcssel zum Strassennamen (Information LOK_ID aus ZUBOFI)",
+                    "name": "strid"
+                },
+                {
+                    "label": "ONRP",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "onrp",
+                    "description": "Ordnungsnummer Post Fremdschl\u00fcssel zu PLZ/Ort (verweist auf NEW_PLZ1). Die ONRP ist der eindeutige, unver\u00e4nderliche Schl\u00fcsselbegriff einer PLZ. Jede neue PLZ erh\u00e4lt eine neue ONRP. Eine ONRP bleibt unver\u00e4ndert, w\u00e4hrend sich eine PLZ \u00e4ndern kann. Wird eine PLZ ausser Betrieb gesetzt, wird die zugeord- nete ONRP nicht mehr verwendet. Wird (in seltenen F\u00e4llen) eine PLZ wieder in Betrieb genommen, wird ihr wieder die urspr\u00fcngliche ONRP zugeordnet."
+                },
+                {
+                    "label": "STRBEZK",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strbezk",
+                    "description": "Abgek\u00fcrzte Strassenbezeichnung Abgek\u00fcrzte Bezeichnung der Strasse in der offiziellen Sprache. Geb\u00e4udebezeichnungen ohne Strasse/Haus- nummer, Gebiets-, Flur- oder Weilerbezeichnungen werden wie Strassennamen behandelt. Zu Geb\u00e4udebezeichnungen sind keine fremdsprachigen Schreibweisen vorhanden. Beispiele: Eglise-Anglaise Avenue"
+                },
+                {
+                    "label": "STRBEZL",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strbezl",
+                    "description": "Ausgeschriebene Strassenbezeichnung Ausgeschriebene Bezeichnung der Strasse in der offiziellen Sprache. Geb\u00e4udebezeichnungen ohne Strasse/Hausnummer, Gebiets-, Flur- oder Weilerbezeichnungen werden wie Strassennamen behandelt. Zu Geb\u00e4udebezeichnungen sind keine fremdsprachigen Schreibweisen vorhanden. Beispiel: Eglise-Anglaise, avenue de l\u2019"
+                },
+                {
+                    "label": "STRBEZ2K",
+                    "type": "text",
+                    "description": "Abgek\u00fcrzte umgestellte Strassenbezeichnung Abgek\u00fcrzte Strassenbezeichnungen mit der Schreibweise Edelweiss, Chalet sind in diesem Feld auf Chalet Edelweiss umgestellt. Beispiel: avenue Eglise-Anglaise",
+                    "name": "strbez2k"
+                },
+                {
+                    "label": "STRBEZ2L",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strbez2l",
+                    "description": "Umgestellte Strassenbezeichnung Strassenbezeichnungen mit der Schreibweise Edelweiss, Chalet sind in diesem Feld auf Chalet Edelweiss umgestellt. Beispiel: avenue de l\u2019Eglise-Anglaise"
+                },
+                {
+                    "label": "STR_LOK_TYP",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "str_lok_typ",
+                    "description": "Lokalisationstyp der Strasse Zur Unterscheidung wird folgender Code verwendet: 1 = Strassenname 2 = Geb\u00e4udebezeichnung"
+                },
+                {
+                    "label": "STRBEZ_SPC",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "strbez_spc",
+                    "description": "Sprache der Strasse Zur Unterscheidung wird folgender Code verwendet: 1 = deutsch 2 = franz\u00f6sisch 3 = italienisch"
+                },
+                {
+                    "type": "text",
+                    "name": "strbez_coff",
+                    "label": "STRBEZ_COFF"
+                },
+                {
+                    "type": "text",
+                    "name": "str_ganzfach",
+                    "label": "STR_GANZFACH"
+                },
+                {
+                    "type": "text",
+                    "name": "str_fach_onrp",
+                    "label": "STR_FACH_ONRP"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "zugangspunkte-post",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "license": "CC BY",
+                "keyword": [
+                    "Zugangspunkt",
+                    "Dienstleistung"
+                ],
+                "title": "Zugangspunkte Post",
+                "records_count": 90502,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "language": "de",
+                "theme": [
+                    "Infrastruktur und Dienstleistungen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_reference_auto": false,
+                "modified": "2020-03-08T22:36:08.882810+00:00",
+                "metadata_processed": "2020-03-08T22:36:09.987923+00:00",
+                "data_processed": "2020-03-08T22:36:08.882810+00:00",
+                "description": "<p>Der vorliegende Datensatz enth\u00e4lt Informationen\u00a0zu postalischen Dienstleistungen und den Zugangspunkten der Post. Die Informationen sind in 4 Sprachen (deutsch, franz\u00f6sisch, italienisch und englisch) abgebildet.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "geo"
+            ],
+            "attachments": [],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "Id",
+                    "type": "text",
+                    "description": "Poi-ID (bspw. 001PST_25623) ",
+                    "name": "id"
+                },
+                {
+                    "label": "POITypeId",
+                    "type": "text",
+                    "description": "ID des PoiTypen (bspw. 001PST)\n\nLesbarer Namen des PoiTypen: Poststelle, PickPost, MyPost24 f\u00fcr 001PST, 001AG-PICK oder 001MP24. F\u00fcr andere POI Typen wird die Beschreibung (Attribut desc) aus dem Service von ESRI \u00fcbernommen. \n",
+                    "name": "poitypeid"
+                },
+                {
+                    "label": "POIName_de",
+                    "type": "text",
+                    "description": "Name des POI (Point of Interest) \"deutsch\"",
+                    "name": "description_de"
+                },
+                {
+                    "label": "POIName_fr",
+                    "type": "text",
+                    "description": "Name des POI (Point of Interest) \"franz\u00f6sisch\"",
+                    "name": "description_fr"
+                },
+                {
+                    "label": "POIName_it",
+                    "type": "text",
+                    "description": "Name des POI (Point of Interest) \"italienisch\"",
+                    "name": "description_it"
+                },
+                {
+                    "label": "POIName_en",
+                    "type": "text",
+                    "description": "Name des POI (Point of Interest) \"englisch\"",
+                    "name": "description_en"
+                },
+                {
+                    "label": "address_city",
+                    "type": "text",
+                    "description": "Ortsname",
+                    "name": "address_city"
+                },
+                {
+                    "label": "address_kantoncode",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        }
+                    ],
+                    "name": "address_kantoncode",
+                    "description": "Der Kanton Code"
+                },
+                {
+                    "label": "address_zip",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        }
+                    ],
+                    "name": "address_zip",
+                    "description": "Postleitzahl"
+                },
+                {
+                    "label": "address_countrycode",
+                    "type": "text",
+                    "description": "L\u00e4nder Code",
+                    "name": "address_countrycode"
+                },
+                {
+                    "label": "address_street",
+                    "type": "text",
+                    "description": "Strassenname und Hausnummer",
+                    "name": "address_street"
+                },
+                {
+                    "label": "address_technicalplz6",
+                    "type": "text",
+                    "description": "die 6-Stellige Postleitzahl ",
+                    "name": "address_technicalplz6"
+                },
+                {
+                    "label": "address_gemeindeid",
+                    "type": "text",
+                    "description": "die Gemeinde ID ",
+                    "name": "address_gemeindeid"
+                },
+                {
+                    "label": "geopoint",
+                    "type": "geo_point_2d",
+                    "description": "Geokoordinaten",
+                    "name": "geopoint"
+                },
+                {
+                    "label": "contact_phone",
+                    "type": "text",
+                    "description": "Kontaktinformation: Telefonnummer",
+                    "name": "contact_phone"
+                },
+                {
+                    "label": "contact_fax",
+                    "type": "text",
+                    "description": "Kontaktinformation: Faxnummer",
+                    "name": "contact_fax"
+                },
+                {
+                    "label": "contact_email_addresse_de",
+                    "type": "text",
+                    "description": "Kontaktinformation: E-Mailadresse \"deutsch\"",
+                    "name": "contact_email_addresse_de"
+                },
+                {
+                    "label": "contact_email_addresse_fr",
+                    "type": "text",
+                    "description": "Kontaktinformation: E-Mailadresse \"franz\u00f6sisch\"",
+                    "name": "contact_email_addresse_fr"
+                },
+                {
+                    "label": "contact_email_addresse_it",
+                    "type": "text",
+                    "description": "Kontaktinformation: E-Mailadresse \"italienisch\"",
+                    "name": "contact_email_addresse_it"
+                },
+                {
+                    "label": "contact_email_addresse_en",
+                    "type": "text",
+                    "description": "Kontaktinformation: E-Mailadresse \"englisch\"",
+                    "name": "contact_email_addresse_en"
+                },
+                {
+                    "label": "pickuptime_description_de",
+                    "type": "text",
+                    "description": "Information f\u00fcr die Abholung avisierter Sendungen \"deutsch\"",
+                    "name": "pickuptime_description_de"
+                },
+                {
+                    "label": "pickuptime_description_fr",
+                    "type": "text",
+                    "description": "Information f\u00fcr die Abholung avisierter Sendungen \"franz\u00f6sisch\"",
+                    "name": "pickuptime_description_fr"
+                },
+                {
+                    "label": "pickuptime_description_it",
+                    "type": "text",
+                    "description": "Information f\u00fcr die Abholung avisierter Sendungen \"italienisch\"",
+                    "name": "pickuptime_description_it"
+                },
+                {
+                    "label": "pickuptime_description_en",
+                    "type": "text",
+                    "description": "Information f\u00fcr die Abholung avisierter Sendungen \"englisch\"",
+                    "name": "pickuptime_description_en"
+                },
+                {
+                    "label": "pickuptime_time",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "args": [
+                                "hour"
+                            ],
+                            "name": "timeserie_precision"
+                        }
+                    ],
+                    "name": "pickuptime_time",
+                    "description": "Abholzeit f\u00fcr avisierte Sendungen vom Vortag"
+                },
+                {
+                    "type": "text",
+                    "name": "additionaldescription",
+                    "label": "AdditionalDescription"
+                },
+                {
+                    "type": "text",
+                    "name": "offerpackage",
+                    "label": "OfferPackage"
+                },
+                {
+                    "type": "text",
+                    "name": "openinghoursevent",
+                    "label": "OpeningHoursEvent"
+                },
+                {
+                    "type": "text",
+                    "name": "accessinformation",
+                    "label": "AccessInformation"
+                },
+                {
+                    "label": "service_servicetypeid",
+                    "type": "text",
+                    "description": "ID-Nummer der Dienstleistungen die an einem POI de Post angeboten werden.",
+                    "name": "service_servicetypeid"
+                },
+                {
+                    "label": "poityp_de",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        }
+                    ],
+                    "name": "poityp_de",
+                    "description": "Typ eines Point of Interest (POI). Bspw. Poststelle, Postomat, Postfachanlage, Logistikzentrum, usw.\n(deutsch)"
+                },
+                {
+                    "label": "Verarbeitung_de",
+                    "type": "text",
+                    "description": "Beschreibung welche Sendungen an dem POI verarbeitet werden.",
+                    "name": "receipttype_de"
+                },
+                {
+                    "label": "poityp_fr",
+                    "type": "text",
+                    "description": "Typ eines Point of Interest (POI). Bspw. Poststelle, Postomat, Postfachanlage, Logistikzentrum, usw.\n(franz\u00f6sisch)",
+                    "name": "poityp_fr"
+                },
+                {
+                    "label": "Verarbeitung_fr",
+                    "type": "text",
+                    "description": "Beschreibung welche Sendungen an dem POI verarbeitet werden.",
+                    "name": "receipttype_fr"
+                },
+                {
+                    "label": "poityp_it",
+                    "type": "text",
+                    "description": "Typ eines Point of Interest (POI). Bspw. Poststelle, Postomat, Postfachanlage, Logistikzentrum, usw.\n(italienisch)",
+                    "name": "poityp_it"
+                },
+                {
+                    "label": "Verarbeitung_it",
+                    "type": "text",
+                    "description": "Beschreibung welche Sendungen an dem POI verarbeitet werden.",
+                    "name": "receipttype_it"
+                },
+                {
+                    "label": "poityp_en",
+                    "type": "text",
+                    "description": "Typ eines Point of Interest (POI). Bspw. Poststelle, Postomat, Postfachanlage, Logistikzentrum, usw.\n(englisch)",
+                    "name": "poityp_en"
+                },
+                {
+                    "label": "Verarbeitung_en",
+                    "type": "text",
+                    "description": "Beschreibung welche Sendungen an dem POI verarbeitet werden.",
+                    "name": "receipttype_en"
+                },
+                {
+                    "label": "ForPrivateCustomer",
+                    "type": "text",
+                    "description": "Richtet sich das Dienstleistungsangebot an Privatkunden\ntrue = Ja\nfalse = Nein",
+                    "name": "forprivatecustomer"
+                },
+                {
+                    "label": "ForBusinessCustomer",
+                    "type": "text",
+                    "description": "Richtet sich das Dienstleistungsangebot an Gesch\u00e4ftskunden\ntrue = Ja\nfalse = Nein",
+                    "name": "forbusinesscustomer"
+                },
+                {
+                    "label": "groupename_de",
+                    "type": "text",
+                    "description": "Name der postalischen Dienstleistungsgruppe (deutsch)",
+                    "name": "groupename_de"
+                },
+                {
+                    "label": "service_de",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        }
+                    ],
+                    "name": "service_de",
+                    "description": "postalische Dienstleistungen welche an unterschiedlichen Zugangspunkt der Post angeboten werden (deutsch)"
+                },
+                {
+                    "label": "url_de",
+                    "type": "text",
+                    "description": "Webseite mit Zusatzinformationen zu Dienstleistungen (deutsch)",
+                    "name": "url_de"
+                },
+                {
+                    "label": "urlmobil_de",
+                    "type": "text",
+                    "description": "Mobile-Webseite mit Zusatzinformationen zu Dienstleistungen (deutsch)",
+                    "name": "urlmobil_de"
+                },
+                {
+                    "label": "groupename_fr",
+                    "type": "text",
+                    "description": "Name der postalischen Dienstleistungsgruppe (franz\u00f6sisch)",
+                    "name": "groupename_fr"
+                },
+                {
+                    "label": "service_fr",
+                    "type": "text",
+                    "description": "postalische Dienstleistungen welche an unterschiedlichen Zugangspunkt der Post angeboten werden (franz\u00f6sisch)",
+                    "name": "service_fr"
+                },
+                {
+                    "label": "url_fr",
+                    "type": "text",
+                    "description": "Webseite mit Zusatzinformationen zu Dienstleistungen (franz\u00f6sisch)",
+                    "name": "url_fr"
+                },
+                {
+                    "label": "urlmobil_fr",
+                    "type": "text",
+                    "description": "Mobile-Webseite mit Zusatzinformationen zu Dienstleistungen (franz\u00f6sisch)",
+                    "name": "urlmobil_fr"
+                },
+                {
+                    "label": "groupename_it",
+                    "type": "text",
+                    "description": "Name der postalischen Dienstleistungsgruppe (italienisch)",
+                    "name": "groupename_it"
+                },
+                {
+                    "label": "service_it",
+                    "type": "text",
+                    "description": "postalische Dienstleistungen welche an unterschiedlichen Zugangspunkt der Post angeboten werden (italienisch)",
+                    "name": "service_it"
+                },
+                {
+                    "label": "url_it",
+                    "type": "text",
+                    "description": "Webseite mit Zusatzinformationen zu Dienstleistungen (italienisch)",
+                    "name": "url_it"
+                },
+                {
+                    "label": "urlmobil_it",
+                    "type": "text",
+                    "description": "Mobile-Webseite mit Zusatzinformationen zu Dienstleistungen (italienisch)",
+                    "name": "urlmobil_it"
+                },
+                {
+                    "label": "groupename_en",
+                    "type": "text",
+                    "description": "Name der postalischen Dienstleistungsgruppe (englisch)",
+                    "name": "groupename_en"
+                },
+                {
+                    "label": "service_en",
+                    "type": "text",
+                    "description": "postalische Dienstleistungen welche an unterschiedlichen Zugangspunkt der Post angeboten werden (englisch",
+                    "name": "service_en"
+                },
+                {
+                    "label": "url_en",
+                    "type": "text",
+                    "description": "Webseite mit Zusatzinformationen zu Dienstleistungen (englisch)",
+                    "name": "url_en"
+                },
+                {
+                    "label": "urlmobil_en",
+                    "type": "text",
+                    "description": "Mobile-Webseite mit Zusatzinformationen zu Dienstleistungen (englisch)",
+                    "name": "urlmobil_en"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        },
+        {
+            "datasetid": "plz_verzeichnis_v2",
+            "metas": {
+                "publisher": "Die Schweizerische Post",
+                "domain": "swisspost",
+                "geographic_reference_auto": false,
+                "language": "de",
+                "license": "CC BY",
+                "title": "PLZ_Verzeichnis",
+                "records_count": 5302,
+                "staged": false,
+                "metadata_languages": [
+                    "de"
+                ],
+                "visibility": "domain",
+                "federated": false,
+                "theme": [
+                    "Adressinformationen"
+                ],
+                "modified_updates_on_data_change": true,
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "modified_updates_on_metadata_change": true,
+                "geographic_area_mode": "convex-hull",
+                "modified": "2020-02-29T00:04:37.520514+00:00",
+                "metadata_processed": "2020-03-01T00:00:56.267046+00:00",
+                "keyword": [
+                    "NEW_PLZ1"
+                ],
+                "data_processed": "2020-02-29T00:04:37.520514+00:00",
+                "description": "<p>Enth\u00e4lt alle f\u00fcr die Adressierung g\u00fcltigen Postleitzahlen der Schweiz und des F\u00fcrstentums Liechtenstein.</p>"
+            },
+            "has_records": true,
+            "data_visible": true,
+            "features": [
+                "analyze",
+                "geo"
+            ],
+            "attachments": [
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://repertoire_des_rues_avec_donnees_de_tri_fr5.pdf",
+                    "id": "repertoire_des_rues_avec_donnees_de_tri_fr_pdf",
+                    "title": "R\u00e9pertoire_des_rues_avec_donn\u00e9es_de_tri_FR.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://stradario_con_dati_di_spartizione_it5.pdf",
+                    "id": "stradario_con_dati_di_spartizione_it_pdf",
+                    "title": "Stradario_con_dati_di_spartizione_IT.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://strassenverzeichnis_mit_sortierdaten_de5.pdf",
+                    "id": "strassenverzeichnis_mit_sortierdaten_de_pdf",
+                    "title": "Strassenverzeichnis_mit_Sortierdaten_DE.pdf"
+                },
+                {
+                    "mimetype": "application/pdf",
+                    "url": "odsfile://street_directory_with_sorting_data_en5.pdf",
+                    "id": "street_directory_with_sorting_data_en_pdf",
+                    "title": "Street_directory_with_sorting_data_EN.pdf"
+                }
+            ],
+            "alternative_exports": [],
+            "fields": [
+                {
+                    "label": "REC_ART",
+                    "type": "text",
+                    "description": "Record-Art Bezeichnet die Record-Art.",
+                    "name": "rec_art"
+                },
+                {
+                    "label": "ONRP",
+                    "type": "int",
+                    "description": "Ordnungsnummer Post Die ONRP ist der Prim\u00e4rschl\u00fcssel zur Bezeichnung von PLZ/Ort gem\u00e4ss PLZ-Datenbank der Post und der eindeutige, unver\u00e4nderliche Schl\u00fcsselbegriff einer PLZ. Jede neue PLZ erh\u00e4lt eine neue ONRP. Eine ONRP bleibt unver\u00e4ndert, w\u00e4hrend sich eine PLZ \u00e4ndern kann. Wird eine PLZ ausser Betrieb gesetzt, wird die zugeord- nete ONRP nicht mehr verwendet. Wird (in seltenen F\u00e4llen) eine PLZ wieder in Betrieb genommen, wird ihr wieder die urspr\u00fcngliche ONRP zugeordnet. ",
+                    "name": "onrp"
+                },
+                {
+                    "label": "BFSNR",
+                    "type": "int",
+                    "description": "Fremdschl\u00fcssel zur BFSNR (verweist auf NEW_COM)",
+                    "name": "bfsnr"
+                },
+                {
+                    "label": "PLZ_TYP",
+                    "type": "int",
+                    "description": "Postleitzahl-Typ Mit dem PLZ-Typ wird \u00fcberpr\u00fcft, ob eine PLZ f\u00fcr bestimmte Adressen grunds\u00e4tzlich plausibel ist. 10 = Domizil- und Fachadressen 20 = Nur Domiziladressen 30 = Nur Fach-PLZ 40 = Firmen-PLZ 80 = Postinterne PLZ (Angabe Zustellpoststelle auf Bundzetteln oder auf Sackanschriften).",
+                    "name": "plz_typ"
+                },
+                {
+                    "label": "POSTLEITZAHL",
+                    "type": "int",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        }
+                    ],
+                    "name": "postleitzahl",
+                    "description": "Adressier-Postleitzahl Die Schweiz ist in neun geografische Leitkreise eingeteilt, die von West nach Ost nummeriert sind. Jeder Leitkreis ist wiederum in Leitgebiete unterteilt, diese wiederum in maximal 100 Einheiten. G\u00fcltige Werte: 1000\u20139999 Die Postleitzahlen werden wie folgt aufgebaut: Beispiel: Zollbr\u00fcck 3 = Leitkreis (Bern) 34 = Leitgebiet (Burgdorf) 343 = Strecke (Burgdorf\u2013Langnau) 3436 = Nummer der Poststelle (Zollbr\u00fcck)"
+                },
+                {
+                    "label": "PLZ_ZZ",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "args": [
+                                "-count"
+                            ],
+                            "name": "facetsort"
+                        },
+                        {
+                            "name": "facet"
+                        }
+                    ],
+                    "name": "plz_zz",
+                    "description": "Postleitzahl-Zusatzziffer Die Zusatzziffer dient dazu, gleichlautende 4-stellige PLZ zu unterscheiden. Beispiel: 4436 00 = Oberdorf BL 4436 02 = Liedertswil Adressdateien m\u00fcssen mit PLZ und Zusatzziffer aufgebaut werden, um eine fehlerfreie Sortierung sicherzustellen. Die Zusatzziffern d\u00fcrfen jedoch nicht in der Postadresse auf der Sendung erscheinen."
+                },
+                {
+                    "label": "GPLZ",
+                    "type": "int",
+                    "description": "Grundpostleitzahl",
+                    "name": "gplz"
+                },
+                {
+                    "label": "ORTBEZ18",
+                    "type": "text",
+                    "annotations": [
+                        {
+                            "name": "facet"
+                        }
+                    ],
+                    "name": "ortbez18",
+                    "description": "Ortsbezeichnung, 18- oder 27-stellig Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall "
+                },
+                {
+                    "label": "ORTBEZ27",
+                    "type": "text",
+                    "description": "Ortsbezeichnung, 18- oder 27-stellig Die Ortszeile in der Postadresse muss die 18- oder die 27-stellige Ortsbezeichnung (offizielle Ortsbezeichnung) enthalten. Die 4-stellige PLZ ist zusammen mit der 18- oder 27-stelligen Ortsbezeichnung eindeutig. Sehr lange Ortsnamen werden auf die verf\u00fcgbare Feldl\u00e4nge gek\u00fcrzt. Beispiel: \u00abNeuhausen am Rheinfall\u00bb: 18-stellig: Neuhausen 27-stellig: Neuhausen am Rheinfall ",
+                    "name": "ortbez27"
+                },
+                {
+                    "type": "text",
+                    "name": "kanton",
+                    "label": "KANTON"
+                },
+                {
+                    "type": "int",
+                    "name": "sprachcode",
+                    "label": "SPRACHCODE"
+                },
+                {
+                    "type": "text",
+                    "name": "sprachcode_abw",
+                    "label": "SPRACHCODE_ ABW"
+                },
+                {
+                    "type": "int",
+                    "name": "briefz_durch",
+                    "label": "BRIEFZ_DURCH"
+                },
+                {
+                    "type": "int",
+                    "name": "gilt_ab_dat",
+                    "label": "GILT_AB_DAT"
+                },
+                {
+                    "type": "int",
+                    "name": "plz_briefzust",
+                    "label": "PLZ_BRIEFZUST"
+                },
+                {
+                    "type": "text",
+                    "name": "plz_coff",
+                    "label": "PLZ_COFF"
+                },
+                {
+                    "type": "geo_shape",
+                    "name": "geo_shape",
+                    "label": "Geo Shape"
+                },
+                {
+                    "label": "Geokoordinaten",
+                    "type": "geo_point_2d",
+                    "description": "Geokoordinaten f\u00fcr Darstellung des PLZ-Gebietes auf der Karte",
+                    "name": "geo_point_2d"
+                }
+            ],
+            "interop_metas": {
+                "dcat_ap_ch": {
+                    "domain": "swisspost",
+                    "rights": "NonCommercialAllowed-CommercialAllowed-ReferenceRequired"
+                }
+            }
+        }
+    ]
+}
