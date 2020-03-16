@@ -40,7 +40,10 @@ class NeedController extends Controller
 
     public function show(Need $need)
     {
-        return view('needs.show', compact('need'));
+        if ($need->active) {
+            return view('needs.show', compact('need'));
+        }
+        return redirect(route('need.index'));
     }
 
     public function edit(Need $need)
@@ -94,6 +97,6 @@ class NeedController extends Controller
 
     public function rawIndex()
     {
-        return NeedResource::collection(Need::where(['active'=>true])->with('user')->get());
+        return NeedResource::collection(Need::where(['active' => true])->with('user')->get());
     }
 }

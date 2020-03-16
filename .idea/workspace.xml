@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80063fd0-66d7-4121-80a9-ac96a20f98ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/helpoffered.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/helpoffered.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NeedController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NeedController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +184,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584173006696</updated>
       <workItem from="1584173013691" duration="29939000" />
-      <workItem from="1584357934923" duration="28000000" />
+      <workItem from="1584357934923" duration="28143000" />
     </task>
     <task id="LOCAL-00001" summary="App bauen">
       <created>1584396618006</created>
@@ -193,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584396618006</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mail hübschen">
+      <created>1584397653072</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584397653072</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,17 +214,18 @@
       </TodoPanelSettings>
     </option>
     <MESSAGE value="App bauen" />
-    <option name="LAST_COMMIT_MESSAGE" value="App bauen" />
+    <MESSAGE value="Mail hübschen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mail hübschen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="698" y="373" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584375225505">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state x="698" y="373" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1200/0.23.1920.1177@0.23.1920.1177" timestamp="1584375225505" />
-    <state x="569" y="225" key="CommitChangelistDialog2" timestamp="1584396617665">
+    <state x="569" y="225" key="CommitChangelistDialog2" timestamp="1584397652934">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
-    <state x="569" y="225" key="CommitChangelistDialog2/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584396617665" />
+    <state x="569" y="225" key="CommitChangelistDialog2/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584397652934" />
     <state x="100" y="123" width="1720" height="977" key="DiffContextDialog" timestamp="1584366070314">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
@@ -236,10 +244,10 @@
     </state>
     <state width="509" height="445" key="SwitcherDM/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584196646667" />
     <state width="509" height="445" key="SwitcherDM/1920.0.1920.1200/0.23.1920.1177@0.23.1920.1177" timestamp="1584368544937" />
-    <state x="560" y="347" key="Vcs.Push.Dialog.v2" timestamp="1584396619297">
+    <state x="560" y="347" key="Vcs.Push.Dialog.v2" timestamp="1584397654003">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
-    <state x="560" y="347" key="Vcs.Push.Dialog.v2/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584396619297" />
+    <state x="560" y="347" key="Vcs.Push.Dialog.v2/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584397654003" />
     <state x="531" y="221" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584389673388">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
@@ -256,11 +264,11 @@
     </state>
     <state x="630" y="352" width="659" height="518" key="find.popup/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584394973869" />
     <state x="630" y="352" width="659" height="518" key="find.popup/1920.0.1920.1200/0.23.1920.1177@0.23.1920.1177" timestamp="1584377074997" />
-    <state x="625" y="288" width="670" height="676" key="search.everywhere.popup" timestamp="1584395730998">
+    <state x="625" y="288" width="670" height="676" key="search.everywhere.popup" timestamp="1584397739549">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state x="469" y="220" width="670" height="504" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1584388932580" />
-    <state x="625" y="288" width="670" height="676" key="search.everywhere.popup/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584395730998" />
+    <state x="625" y="288" width="670" height="676" key="search.everywhere.popup/0.23.1920.1177/1920.0.1920.1200@0.23.1920.1177" timestamp="1584397739549" />
     <state x="625" y="288" width="670" height="676" key="search.everywhere.popup/1920.0.1920.1200/0.23.1920.1177@0.23.1920.1177" timestamp="1584386324834" />
   </component>
 </project>
