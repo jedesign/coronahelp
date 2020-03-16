@@ -67,7 +67,7 @@
             },
             search() {
                 const self = this;
-                axios.get(`https://swisspost.opendatasoft.com/api/records/1.0/search/?dataset=plz_verzeichnis_v2&q=${this.searchstring}`)
+                axios.get(`https://swisspost.opendatasoft.com/api/records/1.0/search/?dataset=plz_verzeichnis_v2&sort=-postleitzahl&rows=30&q=${this.searchstring}`)
                     .then(function (response) {
                         self.locations = {};
                         response.data.records.map((data) => {

@@ -11,8 +11,7 @@ $factory->define(Need::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'preview' => $faker->sentences(3, true),
         'description' => $faker->paragraph,
-        'lat' => $user->lat,
-        'lng' => $user->lng,
+        'active' => true,
         'user_id' => $user
     ];
 });

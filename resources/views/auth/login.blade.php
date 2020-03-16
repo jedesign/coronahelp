@@ -8,6 +8,13 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <p >Damit deine E-Mail- und Wohnadresse geschützt sind, musst du angemeldet sein. Bist du das erste Mal auf dieser Webseite? Dann <a
+                                    href="{{route('register')}}">registriere dich hier</a>.</p>
+                            <p class="mb-4">Ansonsten kannst du dich hier bei deinem Konto anmelden.</p>
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -36,18 +43,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
                             </div>
                         </div>
 

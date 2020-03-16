@@ -18,8 +18,7 @@ class CreateNeedsTable extends Migration
             $table->string('title');
             $table->string('preview');
             $table->text('description');
-            $table->string('lat');
-            $table->string('lng');
+            $table->boolean('active')->default(true);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

@@ -2,89 +2,98 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NeedResource;
+use App\Mail\HelpOffered;
 use App\Need;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class NeedController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('needs.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function list()
+    {
+        $needs = auth()->user()->needs;
+        return view('needs.list', compact('needs'));
+    }
+
     public function create()
     {
-//        $response = Http::get('https://swisspost.opendatasoft.com/api/records/1.0/search/?dataset=plz_verzeichnis_v2&q=Wil SG&rows=1');
-//dd($response->json()['records'][0]['fields']);
-        //https://swisspost.opendatasoft.com/api/records/1.0/search/?dataset=plz_verzeichnis_v2&rows=1&refine.onrp=5403
-
         return view('needs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $data = \request()->validate([
+            'title' => 'required',
+            'preview' => 'required',
+            'description' => 'required',
+        ]);
+
+        auth()->user()->needs()->create($data);
+        return redirect(route('need.list'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Need  $need
-     * @return \Illuminate\Http\Response
-     */
     public function show(Need $need)
     {
-        //
+        return view('needs.show', compact('need'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Need  $need
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Need $need)
     {
-        //
+        return view('needs.edit', compact('need'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Need  $need
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Need $need)
+    public function update(Need $need)
     {
-        //
+        if ($need->user->id === auth()->user()->id) {
+            $data = \request()->validate([
+                'title' => 'required',
+                'preview' => 'required',
+                'description' => 'required',
+            ]);
+
+            $need->update($data);
+        }
+        return redirect(route('need.list'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Need  $need
-     * @return \Illuminate\Http\Response
-     */
+    public function toggle(Need $need)
+    {
+        if ($need->user->id === auth()->user()->id) {
+            $need->toggle();
+        }
+        return redirect(route('need.list'));
+    }
+
+    public function contact(Need $need)
+    {
+        $helper = \request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required',
+        ]);
+        $need->toggle();
+        Mail::to($need->user)->send(new HelpOffered($need, $helper));
+
+        return redirect(route('need.show', compact('need')))->with('status', 'E-Mail erfolgreich versendet.');
+    }
+
     public function destroy(Need $need)
     {
-        //
+        if ($need->user->id === auth()->user()->id) {
+            $need->delete();
+        }
+        return redirect(route('need.list'));
+    }
+
+    public function rawIndex()
+    {
+        return NeedResource::collection(Need::where(['active'=>true])->with('user')->get());
     }
 }

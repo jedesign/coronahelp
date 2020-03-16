@@ -1,0 +1,21 @@
+{
+    "Register": "Registrieren",
+    "Login": "Anmelden",
+    "Name": "Name",
+    "E-Mail Address": "E-Mail",
+    "Street and Number": "Strasse und Nr.",
+    "PLZ and City": "PLZ und Ort",
+    "Password": "Passwort",
+    "Confirm Password": "Passwort wiederholen",
+    "Forgot Your Password?": "Passwort vergessen?",
+    "Send Password Reset Link": "Passwort-zurücksetzen-Link senden",
+    "Title": "Titel",
+    "Preview": "Vorschautext",
+    "Description": "Beschreibung",
+    "Create": "Erstellen",
+    "Save": "Speichern",
+    "Send": "Senden",
+    "Phone": "Telefon",
+    "Message": "Mitteilung",
+    "Logout": "Abmelden"
+}

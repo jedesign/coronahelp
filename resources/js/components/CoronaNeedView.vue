@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" type="button" id="button-addon2" @click="search">Suchen</button>
             </div>
         </div>
-        <div class="position-relative mb-5" style="z-index:1;">
+        <div class="position-relative mb-4" style="z-index:1;">
             <ul class="list-group position-absolute"
                 style="top: 0; left:0; width:100%;max-height: 152px; overflow:auto;"
                 v-show="Object.keys(locations).length">
@@ -19,8 +19,7 @@
 
             </ul>
         </div>
-
-        <ul class="nav nav-pills">
+        <!--<ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link" :class="{'active':view === 'list'}"
                    style="cursor:pointer;"
@@ -31,13 +30,25 @@
                       style="cursor:pointer;"
                       @click.default="switchView('map')">Karte</span>
             </li>
-        </ul>
-        <div class="tab-content pt-3">
+        </ul>-->
+        <div class="tab-content pt-4">
             <div class="tab-pane fade" :class="{'active show':view === 'list'}">
-                <ul class="list-group">
-                    <corona-list-item v-for="need of needs" :key="need.id" :location="location" :map="map"
-                                      :need="need"></corona-list-item>
+                <ul class="list-group" v-if="filteredNeeds.length > 0">
+                    <li class="list-group-item"
+                        v-for="need of filteredNeeds" :key="need.id">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-9">
+                                <p class="mb-1">{{need.plz}} {{need.city}}</p>
+                                <h4 class="mb-1">{{need.title}}</h4>
+                                <p>{{need.preview}}</p>
+                            </div>
+                            <div class="col-12 col-sm-3 d-sm-flex justify-content-sm-end">
+                                <a :href="`/gesuch/${need.id}`" class="btn btn-outline-success">helfen</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
+                <p v-else class="lead">Im Umkreis von 30 Kilometern benötigt niemand deine Hilfe.</p>
             </div>
             <div class="tab-pane fade" :class="{'active show':view === 'map'}">
                 <div style="height: 800px; z-index:0;" class="mb-3 position-relative">
@@ -50,13 +61,13 @@
                         @update:center="centerUpdated"
                         @update:bounds="boundsUpdated"
                     >
-                        <l-tile-layer :url="url"></l-tile-layer>
+                        <!--<l-tile-layer :url="url"></l-tile-layer>
                         <l-marker v-for="need of needs" :key="need.id" :lat-lng="[need.lat,need.lng]">
                             <l-popup>
                                 <h6 class="display-6">{{need.title}}</h6>
                                 <p>{{need.preview}}</p>
                             </l-popup>
-                        </l-marker>
+                        </l-marker>-->
                     </l-map>
                 </div>
             </div>
@@ -65,10 +76,8 @@
 </template>
 
 <script>
-    import CoronaListItem from "./CoronaListItem";
-
     require('axios');
-    import {LMap, LTileLayer, LMarker, LPopup} from 'vue2-leaflet';
+    import {LMap} from 'vue2-leaflet';
     import 'leaflet-providers';
 
     import 'leaflet/dist/leaflet.css';
@@ -76,12 +85,8 @@
 
     export default {
         components: {
-            CoronaListItem,
             CoronaSearchResult,
             LMap,
-            LTileLayer,
-            LMarker,
-            LPopup,
         },
         data() {
             return {
@@ -98,11 +103,29 @@
                 map: null
             };
         },
+        computed: {
+            filteredNeeds() {
+                let needs = [];
+
+                if (this.location === null) {
+                    return this.needs;
+                }
+
+                this.needs.map((need) => {
+                    let distance = this.map.distance(this.location.geo_point_2d, [need.lat, need.lng]);
+
+                    if (distance <= 30000) {
+                        needs.push(need);
+                    }
+                });
+                return needs;
+            }
+        },
         mounted() {
             let self = this;
             axios.get('/raw/needs')
                 .then(function (response) {
-                    self.needs = response.data;
+                    self.needs = response.data.data;
                 })
                 .catch(function (error) {
                     console.log(error);

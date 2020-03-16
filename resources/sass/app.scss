@@ -5,3 +5,27 @@
 @import "~bootswatch/dist/sketchy/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/sketchy/bootswatch";
+
+html {
+    font-size: 1rem;
+    hyphens: auto;
+}
+
+@include media-breakpoint-up(sm) {
+    html {
+        font-size: 1.2rem;
+    }
+}
+
+
+@include media-breakpoint-up(md) {
+    html {
+        font-size: 1.4rem;
+    }
+}
+
+//@include media-breakpoint-up(lg) {
+//    html {
+//        font-size: 1.6rem;
+//    }
+//}

@@ -14,10 +14,13 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
 </head>
 <body>
 <div id="app">
@@ -35,8 +38,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto ml-auto">
-                    <li class="nav-item"><a href="" class="nav-link">Hilfe suchen</a></li>
-                    <li class="nav-item"><a href="/needs" class="nav-link">Hilfe anbieten</a></li>
+                    <li class="nav-item"><a href="{{route('need.create')}}" class="nav-link">Ich brauche Hilfe</a></li>
+                    <li class="nav-item"><a href="{{route('need.index')}}" class="nav-link">Ich will helfen</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -52,7 +55,7 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item"><a href="/home" class="nav-link">{{ Auth::user()->name }}</a></li>
+                        <li class="nav-item"><a href="/home" class="nav-link">Mein Konto</a></li>
                     @endguest
                 </ul>
             </div>
@@ -62,6 +65,10 @@
     <main class="py-4">
         @yield('content')
     </main>
+    <footer class="pt-5 pb-5">
+        <div class="container text-center text-muted">
+            Hast du Probleme mit der Seite? Klick <a href="mailto:help@coronahelp.ch">hier</a>.</div>
+    </footer>
 </div>
 </body>
 </html>
