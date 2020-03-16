@@ -10,6 +10,8 @@ Telefon: {{$helper['phone']}}<br>
 <strong>Nachricht:</strong><br>
 {!! nl2br(e($helper['message'])) !!}
 <br>
+<br>
 –
+<br>
 <br>
 Dein Hilfegesuch wurde deaktiviert, du kannst es in <a href="{{route('home')}}">deinem Konto</a> bei Bedarf wieder reaktivieren.
