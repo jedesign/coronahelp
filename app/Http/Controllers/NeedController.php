@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\NeedResource;
 use App\Mail\HelpOffered;
+use App\Mail\NeedInserted;
 use App\Need;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -34,7 +35,8 @@ class NeedController extends Controller
             'description' => 'required',
         ]);
 
-        auth()->user()->needs()->create($data);
+        $need = auth()->user()->needs()->create($data);
+        Mail::to('help@coronahelp.ch')->send(new NeedInserted($need));
         return redirect(route('need.list'));
     }
 
