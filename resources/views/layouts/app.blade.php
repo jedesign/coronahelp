@@ -67,7 +67,7 @@
     </main>
     <footer class="pt-5 pb-5">
         <div class="container text-center text-muted">
-            Hast du Probleme mit der Seite? Klick <a href="mailto:help@coronahelp.ch">hier</a>.</div>
+            Hast du Probleme mit der Seite oder möchtest eine Rückmeldung geben? Klick <a href="mailto:help@coronahelp.ch">hier</a>.</div>
     </footer>
 </div>
 </body>
